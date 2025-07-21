@@ -186,10 +186,12 @@ class GameFontRenderer(
         glDisable(GL_BLEND)
 
         // Then real text with optional rainbow or gradient
-        val rainbowActive = RainbowFontShader.isInUse
-        val gradientActive = GradientFontShader.isInUse
+        // GradientFontShader.isInUse
+        // RainbowFontShader.isInUse
+        // if (gradient) glUseProgram(GradientFontShader.programId)
+        // if (rainbow) glUseProgram(RainbowFontShader.programId)
         return drawText(
-            currentText, x, baseY, color, ignoreColor = false, rainbow = rainbowActive, gradient = gradientActive
+            currentText, x, baseY, color, ignoreColor = false, rainbow = false, gradient = false
         )
     }
 
@@ -210,8 +212,8 @@ class GameFontRenderer(
         if (text.isNullOrEmpty()) return x.toInt()
 
         // Potentially enable rainbow or gradient shaders
-        if (rainbow) glUseProgram(RainbowFontShader.programId)
-        if (gradient) glUseProgram(GradientFontShader.programId)
+        // if (rainbow) glUseProgram(RainbowFontShader.programId)
+        // if (gradient) glUseProgram(GradientFontShader.programId)
 
         // Position & GL states
         glTranslated(x - 1.5, y + 0.5, 0.0)
@@ -249,8 +251,8 @@ class GameFontRenderer(
                             if (!ignoreColor) {
                                 drawColor = hexColors[colorIndex] or (alpha shl 24)
                                 // If we see a normal color => turn off rainbow/gradient
-                                if (rainbow) glUseProgram(0)
-                                if (gradient) glUseProgram(0)
+                                // if (rainbow) glUseProgram(0)
+                                // if (gradient) glUseProgram(0)
                             }
                             randomCase = false; bold = false; italic = false
                             underline = false; strikeThrough = false
@@ -266,8 +268,8 @@ class GameFontRenderer(
                             if ((drawColor and -67108864) == 0) {
                                 drawColor = drawColor or -16777216
                             }
-                            if (rainbow) glUseProgram(RainbowFontShader.programId)
-                            if (gradient) glUseProgram(GradientFontShader.programId)
+                            // if (rainbow) glUseProgram(RainbowFontShader.programId)
+                            // if (gradient) glUseProgram(GradientFontShader.programId)
 
                             randomCase = false; bold = false; italic = false
                             underline = false; strikeThrough = false

@@ -236,53 +236,53 @@ object BedPlates : Module("BedPlates", Category.VISUAL) {
         val rectHeight = max(26.5, textHeight.toDouble())
 
         // Render rect background
-        GradientShader.begin(
-            backgroundMode == "Gradient",
-            gradientX,
-            gradientY,
-            bgGradColors.toColorArray(maxBackgroundGradientColors),
-            gradientBackgroundSpeed,
-            gradientOffset
-        ).use {
-            RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
-                drawRoundedRect(
-                    (-rectWidth / 1.5 + scale + (offset / 2)).toFloat(),
-                    (-rectHeight / 3 - scale).toFloat(),
-                    (rectWidth / 1.5 - scale - (offset / 2)).toFloat(),
-                    (rectHeight / 1.05 + scale).toFloat(),
-                    when (backgroundMode) {
-                        "Gradient" -> 0
-                        "Rainbow" -> 0
-                        else -> bgColors.color().rgb
-                    },
-                    roundedRectRadius
-                )
-            }
-        }
+        // GradientShader.begin(
+        //     backgroundMode == "Gradient",
+        //     gradientX,
+        //     gradientY,
+        //     bgGradColors.toColorArray(maxBackgroundGradientColors),
+        //     gradientBackgroundSpeed,
+        //     gradientOffset
+        // ).use {
+        //     RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
+        //         drawRoundedRect(
+        //             (-rectWidth / 1.5 + scale + (offset / 2)).toFloat(),
+        //             (-rectHeight / 3 - scale).toFloat(),
+        //             (rectWidth / 1.5 - scale - (offset / 2)).toFloat(),
+        //             (rectHeight / 1.05 + scale).toFloat(),
+        //             when (backgroundMode) {
+        //                 "Gradient" -> 0
+        //                 "Rainbow" -> 0
+        //                 else -> bgColors.color().rgb
+        //             },
+        //             roundedRectRadius
+        //         )
+        //     }
+        // }
 
         // Render distance text
-        GradientFontShader.begin(
-            textMode == "Gradient",
-            gradientX,
-            gradientY,
-            textGradColors.toColorArray(maxTextGradientColors),
-            gradientTextSpeed,
-            gradientOffset
-        ).use {
-            RainbowFontShader.begin(textMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
-                textFont.drawString(
-                    text,
-                    (-textWidth / 2.15F),
-                    (1F - textHeight / 2.15F),
-                    when (textMode) {
-                        "Gradient" -> 0
-                        "Rainbow" -> 0
-                        else -> textColors.color(1).rgb
-                    },
-                    textShadow
-                )
-            }
-        }
+        // GradientFontShader.begin(
+        //     textMode == "Gradient",
+        //     gradientX,
+        //     gradientY,
+        //     textGradColors.toColorArray(maxTextGradientColors),
+        //     gradientTextSpeed,
+        //     gradientOffset
+        // ).use {
+        //     RainbowFontShader.begin(textMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
+        //         textFont.drawString(
+        //             text,
+        //             (-textWidth / 2.15F),
+        //             (1F - textHeight / 2.15F),
+        //             when (textMode) {
+        //                 "Gradient" -> 0
+        //                 "Rainbow" -> 0
+        //                 else -> textColors.color(1).rgb
+        //             },
+        //             textShadow
+        //         )
+        //     }
+        // }
 
         // TODO: replace with item stack rendering
         blocks.forEach { block ->

@@ -261,7 +261,7 @@ object StorageESP : Module("StorageESP", Category.VISUAL) {
                 .forEach { (color, tileEntities) ->
                     color ?: return@forEach
 
-                    GlowShader.startDraw(event.partialTicks, glowRenderScale)
+                    // GlowShader.startDraw(event.partialTicks, glowRenderScale)
 
                     for (entity in tileEntities) {
                         val pos = entity.pos.toVec()
@@ -281,7 +281,7 @@ object StorageESP : Module("StorageESP", Category.VISUAL) {
                         TileEntityRendererDispatcher.instance.renderTileEntityAt(entity, x, y, z, event.partialTicks)
                     }
 
-                    GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha)
+                    // GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha)
                 }
         } catch (ex: Exception) {
             LOGGER.error("An error occurred while rendering all storages for shader esp", ex)

@@ -265,10 +265,10 @@ class Radar(x: Double = 5.0, y: Double = 130.0) : Element("Radar", x, y) {
 
         glPopMatrix()
 
-        RainbowShader.begin(
-            borderRainbow, if (rainbowX == 0f) 0f else 1f / rainbowX,
-            if (rainbowY == 0f) 0f else 1f / rainbowY, System.currentTimeMillis() % 10000 / 10000F
-        ).use {
+        // RainbowShader.begin(
+        //     borderRainbow, if (rainbowX == 0f) 0f else 1f / rainbowX,
+        //     if (rainbowY == 0f) 0f else 1f / rainbowY, System.currentTimeMillis() % 10000 / 10000F
+        // ).use {
             val borderColor = borderColor.selectedColor()
 
             drawBorder(0F, 0F, size, size, borderStrength, borderColor.rgb)
@@ -294,7 +294,7 @@ class Radar(x: Double = 5.0, y: Double = 130.0) : Element("Radar", x, y) {
             glEnable(GL_TEXTURE_2D)
             glDisable(GL_BLEND)
             glDisable(GL_LINE_SMOOTH)
-        }
+        // }
 
         glColor4f(1f, 1f, 1f, 1f)
 

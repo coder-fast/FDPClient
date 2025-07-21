@@ -98,12 +98,12 @@ object ItemESP : Module("ItemESP", Category.VISUAL) {
                     mapOf(entityItem.entityItem to entityItem)
                 )
 
-            GlowShader.startDraw(event.partialTicks, glowRenderScale)
+            // GlowShader.startDraw(event.partialTicks, glowRenderScale)
 
             mc.renderManager.renderEntityStatic(entityItem, event.partialTicks, true)
 
             // Only render green boxes on useful items, if ItemESP is enabled, render boxes of ItemESP.color on useless items as well
-            GlowShader.stopDraw(if (isUseful) Color.green else color, glowRadius, glowFade, glowTargetAlpha)
+            // GlowShader.stopDraw(if (isUseful) Color.green else color, glowRadius, glowFade, glowTargetAlpha)
         }
     }
 

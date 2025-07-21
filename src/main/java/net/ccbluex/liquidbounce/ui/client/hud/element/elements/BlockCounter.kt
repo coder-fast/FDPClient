@@ -99,15 +99,15 @@ class BlockCounter(x: Double = 520.0, y: Double = 245.0) : Element("BlockCounter
             val gradientX = if (gradientX == 0f) 0f else 1f / gradientX
             val gradientY = if (gradientY == 0f) 0f else 1f / gradientY
 
-            GradientShader.begin(
-                backgroundMode == "Gradient",
-                gradientX,
-                gradientY,
-                bgGradColors.toColorArray(maxBackgroundGradientColors),
-                gradientBackgroundSpeed,
-                gradientOffset
-            ).use {
-                RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
+            // GradientShader.begin(
+            //     backgroundMode == "Gradient",
+            //     gradientX,
+            //     gradientY,
+            //     bgGradColors.toColorArray(maxBackgroundGradientColors),
+            //     gradientBackgroundSpeed,
+            //     gradientOffset
+            // ).use {
+                // RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
                     RenderUtils.drawRoundedBorderRect(
                         0F, 0F, width, height, 3F, when (backgroundMode) {
                             "Gradient" -> 0
@@ -115,18 +115,18 @@ class BlockCounter(x: Double = 520.0, y: Double = 245.0) : Element("BlockCounter
                             else -> backgroundCustomColor
                         }, borderCustomColor, roundedRectRadius
                     )
-                }
-            }
+                // }
+            // }
 
-            GradientFontShader.begin(
-                textColorMode == "Gradient",
-                gradientX,
-                gradientY,
-                textGradColors.toColorArray(maxTextGradientColors),
-                gradientTextSpeed,
-                gradientOffset
-            ).use {
-                RainbowFontShader.begin(textColorMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
+            // GradientFontShader.begin(
+            //     textColorMode == "Gradient",
+            //     gradientX,
+            //     gradientY,
+            //     textGradColors.toColorArray(maxTextGradientColors),
+            //     gradientTextSpeed,
+            //     gradientOffset
+            // ).use {
+                // RainbowFontShader.begin(textColorMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
                     font.drawString(
                         info, 2F, 2F - heightPadding, when (textColorMode) {
                             "Gradient" -> 0
@@ -134,8 +134,8 @@ class BlockCounter(x: Double = 520.0, y: Double = 245.0) : Element("BlockCounter
                             else -> textCustomColor
                         }, textShadow
                     )
-                }
-            }
+                // }
+            // }
 
             GL11.glPopMatrix()
         }

@@ -299,26 +299,26 @@ class Text(x: Double = 10.0, y: Double = 10.0, scale: Float = 1F, side: Side = S
                 val rainbowX = if (rainbowX == 0f) 0f else 1f / rainbowX
                 val rainbowY = if (rainbowY == 0f) 0f else 1f / rainbowY
 
-                GradientShader.begin(
-                    backgroundMode == "Gradient",
-                    gradientX,
-                    gradientY,
-                    bgGradColors.toColorArray(maxBackgroundGradientColors),
-                    gradientBackgroundSpeed,
-                    gradientOffset
-                ).use {
-                    RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
-                        drawRoundedRect(
-                            params[0], params[1], params[2], params[3],
-                            when (backgroundMode) {
-                                "Gradient" -> 0
-                                "Rainbow" -> 0
-                                else -> bgColors.color().rgb
-                            },
-                            roundedBackgroundRadius
-                        )
-                    }
-                }
+                // GradientShader.begin(
+                //     backgroundMode == "Gradient",
+                //     gradientX,
+                //     gradientY,
+                //     bgGradColors.toColorArray(maxBackgroundGradientColors),
+                //     gradientBackgroundSpeed,
+                //     gradientOffset
+                // ).use {
+                //     RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
+                //         drawRoundedRect(
+                //             params[0], params[1], params[2], params[3],
+                //             when (backgroundMode) {
+                //                 "Gradient" -> 0
+                //                 "Rainbow" -> 0
+                //                 else -> bgColors.color().rgb
+                //             },
+                //             roundedBackgroundRadius
+                //         )
+                //     }
+                // }
 
                 if (bgBorderColors.color().alpha > 0) {
                     drawRoundedBorder(
@@ -356,22 +356,22 @@ class Text(x: Double = 10.0, y: Double = 10.0, scale: Float = 1F, side: Side = S
 
                 val colorToUse = if (rainbow || gradient) 0 else color.rgb
 
-                GradientFontShader.begin(
-                    gradient,
-                    gradientX,
-                    gradientY,
-                    textGradColors.toColorArray(maxTextGradientColors),
-                    gradientTextSpeed,
-                    gradientOffset
-                ).use {
-                    RainbowFontShader.begin(rainbow, rainbowX, rainbowY, rainbowOffset).use {
-                        fontRenderer.drawString(displayText, 0F, 2 - heightPadding, colorToUse, shadow)
+                // GradientFontShader.begin(
+                //     gradient,
+                //     gradientX,
+                //     gradientY,
+                //     textGradColors.toColorArray(maxTextGradientColors),
+                //     gradientTextSpeed,
+                //     gradientOffset
+                // ).use {
+                //     RainbowFontShader.begin(rainbow, rainbowX, rainbowY, rainbowOffset).use {
+                //         fontRenderer.drawString(displayText, 0F, 2 - heightPadding, colorToUse, shadow)
 
-                        if (editMode && mc.currentScreen is GuiHudDesigner && editTicks <= 40) {
-                            fontRenderer.drawString("_", width - underscoreWidth, 0F, colorToUse, shadow)
-                        }
-                    }
-                }
+                //         if (editMode && mc.currentScreen is GuiHudDesigner && editTicks <= 40) {
+                //             fontRenderer.drawString("_", width - underscoreWidth, 0F, colorToUse, shadow)
+                //         }
+                //     }
+                // }
             }
 
             if (editMode && mc.currentScreen !is GuiHudDesigner) {

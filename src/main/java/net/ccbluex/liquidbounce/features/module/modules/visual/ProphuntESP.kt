@@ -89,7 +89,7 @@ object ProphuntESP : Module("ProphuntESP", Category.VISUAL, gameDetecting = fals
     val onRender2D = handler<Render2DEvent> { event ->
         if (mc.theWorld == null || mode != "Glow") return@handler
 
-        GlowShader.startDraw(event.partialTicks, glowRenderScale)
+        // GlowShader.startDraw(event.partialTicks, glowRenderScale)
 
         for (entity in entities) {
             try {
@@ -99,6 +99,6 @@ object ProphuntESP : Module("ProphuntESP", Category.VISUAL, gameDetecting = fals
             }
         }
 
-        GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha)
+        // GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha)
     }
 }

@@ -155,14 +155,14 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                     )
                 }
             }, toClip = {
-                RainbowShader.begin(
-                    rectRainbow,
-                    if (rainbowX == 0f) 0f else 1f / rainbowX,
-                    if (rainbowY == 0f) 0f else 1f / rainbowY,
-                    System.currentTimeMillis() % 10000 / 10000F
-                ).use {
+                // RainbowShader.begin(
+                //     rectRainbow,
+                //     if (rainbowX == 0f) 0f else 1f / rainbowX,
+                //     if (rainbowY == 0f) 0f else 1f / rainbowY,
+                //     System.currentTimeMillis() % 10000 / 10000F
+                // ).use {
                     drawRect(2F, 1 + tabY - 1, widthWithPadding, tabY + tabHeight, rectColor)
-                }
+                // }
             })
 
             glColor4f(1f, 1f, 1f, 1f)
@@ -225,16 +225,16 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                 }
 
                 if (borderValue) {
-                    RainbowShader.begin(
-                        borderRainbow,
-                        if (rainbowX == 0f) 0f else 1f / rainbowX,
-                        if (rainbowY == 0f) 0f else 1f / rainbowY,
-                        System.currentTimeMillis() % 10000 / 10000F
-                    ).use {
+                    // RainbowShader.begin(
+                    //     borderRainbow,
+                    //     if (rainbowX == 0f) 0f else 1f / rainbowX,
+                    //     if (rainbowY == 0f) 0f else 1f / rainbowY,
+                    //     System.currentTimeMillis() % 10000 / 10000F
+                    // ).use {
                         drawRoundedBorder(
                             borderX1, 0F, borderX2, guiHeight, borderStrength, borderColor.rgb, roundedRectRadius
                         )
-                    }
+                    // }
                 }
 
                 if (displayIcons) {
@@ -383,12 +383,12 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                     x - 1F, y - 1F, x + menuWidth - 2F, y + menuHeight - 1F, backgroundColor, roundedRectRadius
                 )
             }, toClip = {
-                RainbowShader.begin(
-                    rectRainbow,
-                    if (rainbowX == 0f) 0f else 1f / rainbowX,
-                    if (rainbowY == 0f) 0f else 1f / rainbowY,
-                    System.currentTimeMillis() % 10000 / 10000F
-                ).use {
+                // RainbowShader.begin(
+                //     rectRainbow,
+                //     if (rainbowX == 0f) 0f else 1f / rainbowX,
+                //     if (rainbowY == 0f) 0f else 1f / rainbowY,
+                //     System.currentTimeMillis() % 10000 / 10000F
+                // ).use {
                     drawRect(
                         x - if (borderValue) 0 else 1,
                         y + itemY - 1,
@@ -396,7 +396,7 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                         y + itemY + tabHeight - 1,
                         color
                     )
-                }
+                // }
             })
 
             glColor4f(1f, 1f, 1f, 1f)
@@ -410,12 +410,12 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
             }
 
             if (borderValue) {
-                RainbowShader.begin(
-                    borderRainbow,
-                    if (rainbowX == 0f) 0f else 1f / rainbowX,
-                    if (rainbowY == 0f) 0f else 1f / rainbowY,
-                    System.currentTimeMillis() % 10000 / 10000F
-                ).use {
+                // RainbowShader.begin(
+                //     borderRainbow,
+                //     if (rainbowX == 0f) 0f else 1f / rainbowX,
+                //     if (rainbowY == 0f) 0f else 1f / rainbowY,
+                //     System.currentTimeMillis() % 10000 / 10000F
+                // ).use {
                     drawRoundedBorder(
                         x,
                         y - 1F,
@@ -425,7 +425,7 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                         borderColor,
                         roundedRectRadius
                     )
-                }
+                // }
             }
         }
 

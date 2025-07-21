@@ -190,14 +190,14 @@ class LiquidBounceLegacyTH(inst: Targets) : TargetStyle("LiquidBounce", inst, tr
 
             if (fadeMode && shouldRender || smoothMode && shouldRender && width == width || delayCounter < vanishDelay) {
                 // Draw rect box
-                RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
+                // RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
                     drawRoundedBorderRect(
                         0F, 0F, width, height, borderStrength,
                         if (backgroundMode == "Rainbow") 0 else backgroundCustomColor,
                         borderCustomColor,
                         roundedRectRadius
                     )
-                }
+                // }
 
                 // Health bar
                 val healthBarWidth = (targetHealth / maxHealth).coerceIn(0F, 1F) * (width - 6f)

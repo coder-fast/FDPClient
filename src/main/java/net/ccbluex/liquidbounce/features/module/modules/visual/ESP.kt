@@ -174,13 +174,13 @@ object ESP : Module("ESP", Category.VISUAL) {
 
         try {
             entities.groupBy(::getColor).forEach { (color, entities) ->
-                GlowShader.startDraw(event.partialTicks, glowRenderScale)
+                // GlowShader.startDraw(event.partialTicks, glowRenderScale)
 
                 for (entity in entities) {
                     mc.renderManager.renderEntitySimple(entity, event.partialTicks)
                 }
 
-                GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha)
+                // GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha)
             }
         } catch (ex: Exception) {
             LOGGER.error("An error occurred while rendering all entities for shader esp", ex)
