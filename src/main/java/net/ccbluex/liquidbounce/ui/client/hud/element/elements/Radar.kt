@@ -18,7 +18,6 @@ import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawRect
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.glColor
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.makeScissorBox
 import net.ccbluex.liquidbounce.utils.render.SafeVertexBuffer
-import net.ccbluex.liquidbounce.utils.render.shader.shaders.RainbowShader
 import net.minecraft.client.renderer.GlStateManager.bindTexture
 import net.minecraft.client.renderer.Tessellator
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats
@@ -264,37 +263,6 @@ class Radar(x: Double = 5.0, y: Double = 130.0) : Element("Radar", x, y) {
         glDisable(GL_SCISSOR_TEST)
 
         glPopMatrix()
-
-        RainbowShader.begin(
-            borderRainbow, if (rainbowX == 0f) 0f else 1f / rainbowX,
-            if (rainbowY == 0f) 0f else 1f / rainbowY, System.currentTimeMillis() % 10000 / 10000F
-        ).use {
-            val borderColor = borderColor.selectedColor()
-
-            drawBorder(0F, 0F, size, size, borderStrength, borderColor.rgb)
-
-            glEnable(GL_BLEND)
-            glDisable(GL_TEXTURE_2D)
-            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
-            glEnable(GL_LINE_SMOOTH)
-
-            glColor(borderColor)
-            glLineWidth(borderStrength)
-
-            glBegin(GL_LINES)
-
-            glVertex2f(halfSize, 0f)
-            glVertex2f(halfSize, size)
-
-            glVertex2f(0f, halfSize)
-            glVertex2f(size, halfSize)
-
-            glEnd()
-
-            glEnable(GL_TEXTURE_2D)
-            glDisable(GL_BLEND)
-            glDisable(GL_LINE_SMOOTH)
-        }
 
         glColor4f(1f, 1f, 1f, 1f)
 

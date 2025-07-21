@@ -30,7 +30,6 @@ import net.ccbluex.liquidbounce.utils.render.RenderUtils.renderOne
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.renderThree
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.renderTwo
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.setColor
-import net.ccbluex.liquidbounce.utils.render.shader.shaders.GlowShader
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher
 import net.minecraft.entity.item.EntityMinecartChest
 import net.minecraft.tileentity.*
@@ -261,7 +260,7 @@ object StorageESP : Module("StorageESP", Category.VISUAL) {
                 .forEach { (color, tileEntities) ->
                     color ?: return@forEach
 
-                    GlowShader.startDraw(event.partialTicks, glowRenderScale)
+                    // GlowShader.startDraw(event.partialTicks, glowRenderScale) // Removed GlowShader
 
                     for (entity in tileEntities) {
                         val pos = entity.pos.toVec()
@@ -281,7 +280,7 @@ object StorageESP : Module("StorageESP", Category.VISUAL) {
                         TileEntityRendererDispatcher.instance.renderTileEntityAt(entity, x, y, z, event.partialTicks)
                     }
 
-                    GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha)
+                    // GlowShader.stopDraw(color, glowRadius, glowFade, glowTargetAlpha) // Removed GlowShader
                 }
         } catch (ex: Exception) {
             LOGGER.error("An error occurred while rendering all storages for shader esp", ex)

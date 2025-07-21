@@ -22,7 +22,6 @@ import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawRect
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawRoundedBorder
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawRoundedRect
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.withClipping
-import net.ccbluex.liquidbounce.utils.render.shader.shaders.RainbowShader
 import net.minecraft.client.gui.FontRenderer
 import net.minecraft.util.ResourceLocation
 import org.lwjgl.input.Keyboard
@@ -155,14 +154,7 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                     )
                 }
             }, toClip = {
-                RainbowShader.begin(
-                    rectRainbow,
-                    if (rainbowX == 0f) 0f else 1f / rainbowX,
-                    if (rainbowY == 0f) 0f else 1f / rainbowY,
-                    System.currentTimeMillis() % 10000 / 10000F
-                ).use {
-                    drawRect(2F, 1 + tabY - 1, widthWithPadding, tabY + tabHeight, rectColor)
-                }
+                // No RainbowShader usage
             })
 
             glColor4f(1f, 1f, 1f, 1f)
@@ -225,16 +217,7 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                 }
 
                 if (borderValue) {
-                    RainbowShader.begin(
-                        borderRainbow,
-                        if (rainbowX == 0f) 0f else 1f / rainbowX,
-                        if (rainbowY == 0f) 0f else 1f / rainbowY,
-                        System.currentTimeMillis() % 10000 / 10000F
-                    ).use {
-                        drawRoundedBorder(
-                            borderX1, 0F, borderX2, guiHeight, borderStrength, borderColor.rgb, roundedRectRadius
-                        )
-                    }
+                    // No RainbowShader usage
                 }
 
                 if (displayIcons) {
@@ -383,20 +366,7 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
                     x - 1F, y - 1F, x + menuWidth - 2F, y + menuHeight - 1F, backgroundColor, roundedRectRadius
                 )
             }, toClip = {
-                RainbowShader.begin(
-                    rectRainbow,
-                    if (rainbowX == 0f) 0f else 1f / rainbowX,
-                    if (rainbowY == 0f) 0f else 1f / rainbowY,
-                    System.currentTimeMillis() % 10000 / 10000F
-                ).use {
-                    drawRect(
-                        x - if (borderValue) 0 else 1,
-                        y + itemY - 1,
-                        x + menuWidth - 2F,
-                        y + itemY + tabHeight - 1,
-                        color
-                    )
-                }
+                // No RainbowShader usage
             })
 
             glColor4f(1f, 1f, 1f, 1f)
@@ -410,22 +380,7 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
             }
 
             if (borderValue) {
-                RainbowShader.begin(
-                    borderRainbow,
-                    if (rainbowX == 0f) 0f else 1f / rainbowX,
-                    if (rainbowY == 0f) 0f else 1f / rainbowY,
-                    System.currentTimeMillis() % 10000 / 10000F
-                ).use {
-                    drawRoundedBorder(
-                        x,
-                        y - 1F,
-                        x + menuWidth - 2F,
-                        y + menuHeight - 1F,
-                        borderStrength,
-                        borderColor,
-                        roundedRectRadius
-                    )
-                }
+                // No RainbowShader usage
             }
         }
 

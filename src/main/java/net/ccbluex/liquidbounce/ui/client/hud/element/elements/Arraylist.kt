@@ -322,7 +322,7 @@ class Arraylist(
                             }
                         }
 
-                        GradientFontShader.begin(
+                        GradientShader.begin(
                             !markAsInactive && textColorMode == "Gradient",
                             gradientX,
                             gradientY,
@@ -330,7 +330,7 @@ class Arraylist(
                             gradientTextSpeed,
                             gradientOffset
                         ).use {
-                            RainbowFontShader.begin(
+                            RainbowShader.begin(
                                 !markAsInactive && textColorMode == "Rainbow", rainbowX, rainbowY, rainbowOffset
                             ).use {
                                 font.drawString(
@@ -479,7 +479,7 @@ class Arraylist(
                             }
                         }
 
-                        GradientFontShader.begin(
+                        GradientShader.begin(
                             !markAsInactive && textColorMode == "Gradient",
                             gradientX,
                             gradientY,
@@ -487,7 +487,7 @@ class Arraylist(
                             gradientTextSpeed,
                             gradientOffset
                         ).use {
-                            RainbowFontShader.begin(
+                            RainbowShader.begin(
                                 !markAsInactive && textColorMode == "Rainbow", rainbowX, rainbowY, rainbowOffset
                             ).use {
                                 font.drawString(

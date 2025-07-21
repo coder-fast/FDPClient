@@ -19,7 +19,6 @@ import net.ccbluex.liquidbounce.utils.render.RenderUtils.disableGlCap
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawEntityBox
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.enableGlCap
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.resetCaps
-import net.ccbluex.liquidbounce.utils.render.shader.shaders.GlowShader
 import net.ccbluex.liquidbounce.utils.rotation.RotationUtils.isEntityHeightVisible
 import net.minecraft.entity.item.EntityItem
 import org.lwjgl.opengl.GL11.*
@@ -98,12 +97,8 @@ object ItemESP : Module("ItemESP", Category.VISUAL) {
                     mapOf(entityItem.entityItem to entityItem)
                 )
 
-            GlowShader.startDraw(event.partialTicks, glowRenderScale)
-
-            mc.renderManager.renderEntityStatic(entityItem, event.partialTicks, true)
-
             // Only render green boxes on useful items, if ItemESP is enabled, render boxes of ItemESP.color on useless items as well
-            GlowShader.stopDraw(if (isUseful) Color.green else color, glowRadius, glowFade, glowTargetAlpha)
+            // GlowShader.stopDraw(if (isUseful) Color.green else color, glowRadius, glowFade, glowTargetAlpha) // Removed GlowShader
         }
     }
 

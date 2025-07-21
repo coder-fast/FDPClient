@@ -20,7 +20,6 @@ import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawRoundedBorderRect
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawScaledCustomSizeModalRect
 import net.ccbluex.liquidbounce.utils.render.animation.AnimationUtil
 import net.ccbluex.liquidbounce.utils.render.animation.AnimationUtil.debugFPS
-import net.ccbluex.liquidbounce.utils.render.shader.shaders.RainbowShader
 import net.minecraft.client.gui.GuiChat
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.util.ResourceLocation
@@ -190,14 +189,12 @@ class LiquidBounceLegacyTH(inst: Targets) : TargetStyle("LiquidBounce", inst, tr
 
             if (fadeMode && shouldRender || smoothMode && shouldRender && width == width || delayCounter < vanishDelay) {
                 // Draw rect box
-                RainbowShader.begin(backgroundMode == "Rainbow", rainbowX, rainbowY, rainbowOffset).use {
-                    drawRoundedBorderRect(
-                        0F, 0F, width, height, borderStrength,
-                        if (backgroundMode == "Rainbow") 0 else backgroundCustomColor,
-                        borderCustomColor,
-                        roundedRectRadius
-                    )
-                }
+                drawRoundedBorderRect(
+                    0F, 0F, width, height, borderStrength,
+                    if (backgroundMode == "Rainbow") 0 else backgroundCustomColor,
+                    borderCustomColor,
+                    roundedRectRadius
+                )
 
                 // Health bar
                 val healthBarWidth = (targetHealth / maxHealth).coerceIn(0F, 1F) * (width - 6f)

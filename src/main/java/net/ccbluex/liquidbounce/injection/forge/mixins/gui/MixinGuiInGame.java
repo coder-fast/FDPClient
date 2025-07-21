@@ -17,8 +17,6 @@ import net.ccbluex.liquidbounce.utils.inventory.SilentHotbar;
 import net.ccbluex.liquidbounce.utils.inventory.InventoryUtils;
 import net.ccbluex.liquidbounce.utils.render.ColorSettingsKt;
 import net.ccbluex.liquidbounce.utils.render.RenderUtils;
-import net.ccbluex.liquidbounce.utils.render.shader.shaders.GradientShader;
-import net.ccbluex.liquidbounce.utils.render.shader.shaders.RainbowShader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiIngame;
@@ -114,18 +112,18 @@ public abstract class MixinGuiInGame extends Gui {
                 AWTFontRenderer.Companion.setAssumeNonVolatile(true);
 
                 if (isGradient) {
-                    GradientShader.begin(
-                            true,
-                            gradientX,
-                            gradientY,
-                            gradientColors,
-                            hud.getGradientHotbarSpeed(),
-                            gradientOffset
-                    );
+                    // GradientShader.begin(
+                    //         true,
+                    //         gradientX,
+                    //         gradientY,
+                    //         gradientColors,
+                    //         hud.getGradientHotbarSpeed(),
+                    //         gradientOffset
+                    // );
                 }
 
                 if (isRainbow) {
-                    RainbowShader.begin(true, rainbowX, rainbowY, rainbowOffset);
+                    // RainbowShader.begin(true, rainbowX, rainbowY, rainbowOffset);
                 }
 
                 // Inner - Background
@@ -138,10 +136,10 @@ public abstract class MixinGuiInGame extends Gui {
                 );
 
                 if (isRainbow) {
-                    RainbowShader.INSTANCE.stopShader();
+                    // RainbowShader.INSTANCE.stopShader();
                 }
                 if (isGradient) {
-                    GradientShader.INSTANCE.stopShader();
+                    // GradientShader.INSTANCE.stopShader();
                 }
 
                 // Inner - Highlight
