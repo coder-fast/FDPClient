@@ -92,26 +92,26 @@ public abstract class MixinGuiScreen {
             if (background == null) {
                 // Use default background shader
 
-                GL11.glPushMatrix();
-                BackgroundShader.Companion.getBACKGROUND_SHADER().startShader();
+                // GL11.glPushMatrix();
+                // BackgroundShader.Companion.getBACKGROUND_SHADER().startShader();
 
-                final Tessellator instance = Tessellator.getInstance();
-                final WorldRenderer worldRenderer = instance.getWorldRenderer();
+                // final Tessellator instance = Tessellator.getInstance();
+                // final WorldRenderer worldRenderer = instance.getWorldRenderer();
 
-                GL11.glEnable(GL11.GL_BLEND);
-                GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+                // GL11.glEnable(GL11.GL_BLEND);
+                // GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-                worldRenderer.begin(7, DefaultVertexFormats.POSITION);
-                worldRenderer.pos(0, height, 0).endVertex();
-                worldRenderer.pos(width, height, 0).endVertex();
-                worldRenderer.pos(width, 0, 0).endVertex();
-                worldRenderer.pos(0, 0, 0).endVertex();
-                instance.draw();
+                // worldRenderer.begin(7, DefaultVertexFormats.POSITION);
+                // worldRenderer.pos(0, height, 0).endVertex();
+                // worldRenderer.pos(width, height, 0).endVertex();
+                // worldRenderer.pos(width, 0, 0).endVertex();
+                // worldRenderer.pos(0, 0, 0).endVertex();
+                // instance.draw();
 
-                BackgroundShader.Companion.getBACKGROUND_SHADER().stopShader();
+                // BackgroundShader.Companion.getBACKGROUND_SHADER().stopShader();
 
-                GL11.glDisable(GL11.GL_BLEND);
-                GL11.glPopMatrix();
+                // GL11.glDisable(GL11.GL_BLEND);
+                // GL11.glPopMatrix();
             } else {
                 // Use custom background
                 background.drawBackground(width, height);
