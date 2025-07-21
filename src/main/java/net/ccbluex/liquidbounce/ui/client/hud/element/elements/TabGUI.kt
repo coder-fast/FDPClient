@@ -54,7 +54,7 @@ class TabGUI(x: Double = 16.0, y: Double = 43.0) : Element("TabGUI", x = x, y = 
     private val rainbowY by float("Rainbow-Y", -1000F, -2000F..2000F) { rectRainbow || (borderValue && borderRainbow) }
 
     // Icons
-    private val displayIcons by boolean("DisplayIcons", true)
+    private val displayIcons = false
     private val iconRectColor by color("IconRectColor", Color.BLACK.withAlpha(200)) { displayIcons }
     private val useRectangleColorForChosenIconColor by boolean(
         "UseRectangleColorForChosenIconColor", true

@@ -28,9 +28,9 @@ object ClientConfiguration : Configurable("ClientConfiguration"), MinecraftInsta
             // Set FDP title
             Display.setTitle(FDPClient.clientTitle)
             // Update favicon
-            IconUtils.getFavicon()?.let { icons ->
-                Display.setIcon(icons)
-            }
+            // IconUtils.getFavicon()?.let { icons ->
+            //     Display.setIcon(icons)
+            // }
         } else {
             // Set original title
             Display.setTitle("Minecraft 1.8.9")

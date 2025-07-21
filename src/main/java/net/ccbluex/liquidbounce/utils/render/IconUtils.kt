@@ -22,10 +22,9 @@ object IconUtils {
     @JvmStatic
     fun initLwjglIcon(): Boolean {
         val icons = getFavicon()?.filterNotNull()?.toTypedArray()
-        if (!icons.isNullOrEmpty()) {
-            Display.setIcon(icons)
-            return true
-        }
+        // if (!icons.isNullOrEmpty()) {
+        //     Display.setIcon(icons)
+        // }
         return false
     }
 
