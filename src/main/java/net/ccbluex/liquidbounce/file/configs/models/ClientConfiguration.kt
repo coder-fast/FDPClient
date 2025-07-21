@@ -14,7 +14,7 @@ import org.lwjgl.opengl.Display
 
 object ClientConfiguration : Configurable("ClientConfiguration"), MinecraftInstance {
     var clientTitle by boolean("ClientTitle", true)
-    var customBackground by boolean("CustomBackground", true)
+    var customBackground by boolean("CustomBackground", false)
     var particles by boolean("Particles", true)
     var stylisedAlts by boolean("StylisedAlts", true)
     var unformattedAlts by boolean("CleanAlts", true)
